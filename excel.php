@@ -1,20 +1,20 @@
 <?php 
+ header("Content-Type: application/vnd.ms-excel; name='excel'");
+ header("Content-type: application/octet-stream");
+ header("Content-Disposition: attachment; filename=export_log.xls");
+ header("Pragma: no-cache");
+ header("Expires: 0");
 
-require('pdf/vendor/autoload.php');
-
-require'simple.php';
-
-$to ="justfordemo2017@gmail.com";
-$subject ="Custom Html Template with PDF".date("d-m-y h:i:s");
-$msg = "Testing";
-
-
+ 
 $name= "Basant";
 $address = "Lalita Park";
 $email="testemail@gmail.com";
 $programming_languages = "PHP";
 $experience ="4 Years";
 $mobile ="8764665455";
+$city = "Laxmi Nagar";
+$state = "Delhi";
+$pincode = "110092";
 
 $additional_information = "Testing";
 
@@ -52,33 +52,6 @@ $additional_information = "Testing";
   </table>
  ';
 
+ echo  $msg;
 
-//echo $msg;
-
-$mpdf=new \Mpdf\Mpdf();
-$mpdf->WriteHTML($msg);
-$attachment='media/'.time().'.pdf';
-$mpdf->output($attachment,'F');
-
-
-
-
-echo smtp_mailer($to,$subject,$msg,$attachment);
-
-
-
-?>
-
-<?php
-// $to_email = "justfordemo2017@gmail.com";
-// $subject = "Simple Email Test via PHP";
-// $body = "Hi,nn This is test email send by PHP Script";
-// $headers = "From: justfordemo2017@gmail.com";
-
-// if (mail($to_email, $subject, $body, $headers)) {
-// echo "Email successfully sent to $to_email...";
-// } else {
-// echo "Email sending failed...";
-// }
-
-?>
+ ?>
